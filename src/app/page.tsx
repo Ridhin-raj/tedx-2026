@@ -158,7 +158,7 @@ export default function Home() {
         initial="hidden"
         animate="visible"
         variants={logoVariants}
-        className="relative z-20 mt-6 select-none"
+        className="relative z-20 translate-y-8 select-none"
       >
         <span className="text-lg font-bold uppercase tracking-[0.25em] text-[#EB0028] sm:text-xl md:text-2xl">
           TEDx
