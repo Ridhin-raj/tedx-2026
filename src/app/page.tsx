@@ -93,7 +93,7 @@ export default function Home() {
   );
 
   return (
-    <main className="relative flex min-h-screen w-full flex-col items-center justify-between overflow-hidden bg-[#090909] px-6 py-10">
+    <main className="relative flex h-screen w-full flex-col items-center justify-between overflow-hidden bg-[#090909] px-6 py-10">
       {/* Layer 1 — Grain/noise texture */}
       <div
         className="pointer-events-none absolute inset-0 z-10 opacity-[0.06] mix-blend-overlay"
@@ -164,7 +164,7 @@ export default function Home() {
           TEDx
         </span>
         <span className="text-lg font-bold uppercase tracking-[0.25em] text-white sm:text-xl md:text-2xl">
-          CUSAT
+           CUSAT
         </span>
       </motion.div>
 
@@ -203,20 +203,36 @@ export default function Home() {
         </motion.div>
       </div>
 
-      {/* Bottom — Scroll indicator */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={scrollVariants}
-        className="relative z-20 mb-2 flex flex-col items-center gap-2"
-      >
-        <motion.span
-          className="block h-10 w-px bg-gradient-to-b from-[#EB0028] to-transparent sm:h-12"
-          animate={{ opacity: [0.3, 1, 0.3] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        />
-        
-      </motion.div>
+      {/* Bottom gradient */}
+<div className="pointer-events-none absolute bottom-0 left-0 z-20 h-[32vh] w-full bg-gradient-to-t from-black via-black/90 to-transparent" />
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{
+    duration: 1.2,
+    delay: 1.4,
+    ease: easeOut,
+  }}
+  className="absolute bottom-12 left-1/2 z-30 -translate-x-1/2 text-center"
+>
+  <motion.h2
+    animate={{
+      opacity: [0.7, 1, 0.7],
+      letterSpacing: ["0.35em", "0.45em", "0.35em"],
+    }}
+    transition={{
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="font-light uppercase tracking-[0.35em] text-white
+               text-xl
+               sm:text-2xl
+               md:text-3xl"
+  >
+    COMING SOON
+  </motion.h2>
+</motion.div>
     </main>
   );
 }
