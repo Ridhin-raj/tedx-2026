@@ -155,7 +155,24 @@ export default function Home() {
           />
         ))}
       </div>
-
+<div className="absolute left-[15%] top-[18%] h-1.5 w-1.5 rounded-full bg-white shadow-[0_0_10px_white]" animate={{
+  opacity: [0.3, 1, 0.3],
+  scale: [1, 1.3, 1],
+  y: [0, -3, 0],
+  x: [0, 2, 0],
+}} />
+<div className="absolute right-[18%] top-[30%] h-2 w-2 rounded-full bg-white shadow-[0_0_12px_white]" animate={{
+  opacity: [0.3, 1, 0.3],
+  scale: [1, 1.3, 1],
+  y: [0, -3, 0],
+  x: [0, 2, 0],
+}}/>
+<div className="absolute left-[70%] top-[12%] h-1 w-1 rounded-full bg-white shadow-[0_0_8px_white]" animate={{
+  opacity: [0.3, 1, 0.3],
+  scale: [1, 1.3, 1],
+  y: [0, -3, 0],
+  x: [0, 2, 0],
+}} />
       {/* Layer 4 — Giant translucent X with mouse parallax */}
       <motion.div
   aria-hidden="true"
