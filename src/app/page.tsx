@@ -135,15 +135,21 @@ export default function Home() {
 
       {/* Layer 4 — Giant translucent X with mouse parallax */}
       <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute z-0 select-none font-serif font-bold leading-none text-[#EB0028] opacity-10
-text-[80vw]
-sm:text-[78vw]
-md:text-[75vw]
-lg:text-[75vw]
-xl:text-[75vw]"
-        style={{ x: xParallaxX, y: xParallaxY }}
-      >
+  aria-hidden="true"
+  className="pointer-events-none absolute z-0 select-none font-serif  leading-none text-[#EB0028] opacity-10
+  text-[80vw]
+  sm:text-[78vw]
+  md:text-[75vw]
+  lg:text-[75vw]
+  xl:text-[75vw]
+  -translate-y-[7vh]"
+  style={{ 
+    x: xParallaxX, 
+    y: xParallaxY, 
+    scaleY: 0.9,   // Increase height
+    scaleX: 2
+    }}
+>
         X
       </motion.div>
 
@@ -152,12 +158,12 @@ xl:text-[75vw]"
         initial="hidden"
         animate="visible"
         variants={logoVariants}
-        className="relative z-20 mt-2 select-none"
+        className="relative z-20 mt-6 select-none"
       >
-        <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#EB0028] sm:text-sm">
+        <span className="text-lg font-bold uppercase tracking-[0.25em] text-[#EB0028] sm:text-xl md:text-2xl">
           TEDx
         </span>
-        <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white sm:text-sm">
+        <span className="text-lg font-bold uppercase tracking-[0.25em] text-white sm:text-xl md:text-2xl">
           CUSAT
         </span>
       </motion.div>

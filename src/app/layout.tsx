@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "TEDxCUSAT 2026 | ANOMALY",
+  title: "coming soon",
   description:
     "Every breakthrough begins as an anomaly. TEDxCUSAT 2026 — Coming Soon.",
   metadataBase: new URL("https://tedxcusat.in"),
