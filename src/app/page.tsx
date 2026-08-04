@@ -216,22 +216,56 @@ export default function Home() {
   className="absolute bottom-12 left-1/2 z-30 -translate-x-1/2 text-center"
 >
   <motion.h2
+  animate={{
+    opacity: [0.7, 1, 0.7],
+  }}
+  transition={{
+    duration: 3,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="flex items-center justify-center gap-1 text-xl font-light uppercase tracking-[0.35em] text-white sm:text-2xl md:text-3xl"
+>
+  <span>COMING</span>
+
+  <span>S</span>
+
+  {/* Black Hole O */}
+  <motion.span
     animate={{
-      opacity: [0.7, 1, 0.7],
-      letterSpacing: ["0.35em", "0.45em", "0.35em"],
+      rotate: 360,
+      boxShadow: [
+        "0 0 12px rgba(235,0,40,.45)",
+        "0 0 24px rgba(235,0,40,.85)",
+        "0 0 12px rgba(235,0,40,.45)",
+      ],
     }}
     transition={{
-      duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut",
+      rotate: {
+        duration: 10,
+        repeat: Infinity,
+        ease: "linear",
+      },
+      boxShadow: {
+        duration: 2,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
     }}
-    className="font-light uppercase tracking-[0.35em] text-white
-               text-xl
-               sm:text-2xl
-               md:text-3xl"
+    className="relative mx-1 inline-flex h-[0.9em] w-[0.9em] items-center justify-center rounded-full border border-red-500"
   >
-    COMING SOON
-  </motion.h2>
+    {/* Event Horizon */}
+    <span className="absolute inset-0 rounded-full border border-red-500 opacity-70" />
+
+    {/* Black Core */}
+    <span className="absolute h-[68%] w-[68%] rounded-full bg-black" />
+
+    {/* Glow */}
+    <span className="absolute h-full w-full rounded-full bg-red-500 opacity-20 blur-md" />
+  </motion.span>
+
+  <span>ON</span>
+</motion.h2>
 </motion.div>
     </main>
   );
