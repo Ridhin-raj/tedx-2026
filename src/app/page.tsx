@@ -95,6 +95,11 @@ export default function Home() {
   return (
     <main className="relative flex h-screen w-full flex-col items-center justify-between overflow-hidden bg-[#090909] px-6 py-10">
       {/* Layer 1 — Grain/noise texture */}
+      {/* Background nebula */}
+<div className="pointer-events-none absolute inset-0 overflow-hidden">
+  <div className="absolute -left-32 top-1/4 h-[500px] w-[500px] rounded-full bg-[#EB0028]/10 blur-[160px]" />
+  <div className="absolute -right-40 bottom-1/4 h-[600px] w-[600px] rounded-full bg-[#EB0028]/8 blur-[220px]" />
+</div>
       <div
         className="pointer-events-none absolute inset-0 z-10 opacity-[0.06] mix-blend-overlay"
         style={{
@@ -105,7 +110,25 @@ export default function Home() {
 
       {/* Layer 2 — Radial vignette */}
       <div className="pointer-events-none absolute inset-0 z-10 [background:radial-gradient(circle_at_center,transparent_0%,transparent_35%,rgba(0,0,0,0.9)_100%)]" />
-
+{/* Slow Energy Pulse */}
+<motion.div
+  aria-hidden
+  className="pointer-events-none absolute left-1/2 top-1/2 z-[1] h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+  style={{
+    background:
+      "radial-gradient(circle, rgba(235,0,40,0.08) 0%, rgba(235,0,40,0.03) 40%, transparent 75%)",
+    filter: "blur(80px)",
+  }}
+  animate={{
+    scale: [1, 1.08, 1],
+    opacity: [0.5, 0.8, 0.5],
+  }}
+  transition={{
+    duration: 8,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+/>
       {/* Layer 3 — Floating particles */}
       <div className="pointer-events-none absolute inset-0 z-0">
         {particles.map((p) => (
@@ -171,7 +194,15 @@ export default function Home() {
       {/* Center — Eclipse + Mascot */}
       <div className="relative z-20 flex flex-col items-center">
         {/* Eclipse circle */}
-        
+        <div
+  aria-hidden
+  className="absolute left-1/2 top-1/2 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/5"
+/>
+
+<div
+  aria-hidden
+  className="absolute left-1/2 top-1/2 h-[760px] w-[760px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-red-900/20"
+/>
 
         {/* Mascot + glow */}
         <motion.div
