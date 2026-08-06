@@ -96,18 +96,12 @@ export default function Home() {
    <main
   className="
     relative
-    h-[100dvh]
+    h-screen
+    min-h-screen
     w-full
     overflow-hidden
-    flex
-    flex-col
-    items-center
-    justify-between
     bg-[#090909]
-    px-4
-    sm:px-6
-    md:px-8
-    py-4
+    isolate
   "
 >
       {/* Layer 1 — Grain/noise texture */}
@@ -214,33 +208,20 @@ export default function Home() {
   }}
 />
       {/* Layer 4 — Giant translucent X with mouse parallax */}
-      <motion.div
-        aria-hidden="true"
-        className="
-pointer-events-none
-absolute
-z-0
-select-none
-font-serif
-leading-none
-text-[#EB0028]
-opacity-10
-text-[120vw]
-sm:text-[95vw]
-md:text-[80vw]
-lg:text-[75vw]
--translate-y-[4vh]
-sm:-translate-y-[6vh]
-"
-        style={{
-          x: xParallaxX,
-          y: xParallaxY,
-          scaleY: 0.9,   // Increase height
-          scaleX: 2
-        }}
-      >
-        X
-      </motion.div>
+      <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2">
+        <motion.div
+          aria-hidden="true"
+          className="select-none font-serif text-[clamp(420px,78vmax,1200px)] leading-none text-[#EB0028] opacity-10"
+          style={{
+            x: xParallaxX,
+            y: xParallaxY,
+            scaleY: 0.9,
+            scaleX: 1.6,
+          }}
+        >
+          X
+        </motion.div>
+      </div>
 
       {/* Top — TEDx CUSAT wordmark */}
       {/* Top — TEDx CUSAT Logo */}
@@ -248,16 +229,7 @@ sm:-translate-y-[6vh]
         initial="hidden"
         animate="visible"
         variants={logoVariants}
-        className="
-relative
-z-20
-translate-y-4
-sm:translate-y-6
-md:translate-y-8
-flex
-flex-col
-items-center
-"
+        className="absolute left-1/2 top-[clamp(1.25rem,3vh,2rem)] z-30 flex -translate-x-1/2 flex-col items-center"
       >
         {/* Main Logo */}
         <div className="flex items-start leading-none">
@@ -322,26 +294,18 @@ lg:text-xs font-medium text-white/90">
       </motion.div>
 
       {/* Center — Eclipse + Mascot */}
-      <div className="relative z-20 flex flex-col items-center">
+      <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
         {/* Eclipse circle */}
         <div
           aria-hidden
-          className="absolute left-1/2 top-1/2 h-[70vw]
-w-[70vw]
-max-h-[650px]
-max-w-[650px]
-min-h-[280px]
-min-w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/5"
+          className="absolute left-1/2 top-[48%] h-[min(90vw,clamp(280px,72svh,650px))]
+w-[min(90vw,clamp(280px,72svh,650px))] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/5"
         />
 
         <div
           aria-hidden
-          className="absolute left-1/2 top-1/2 h-[82vw]
-w-[82vw]
-max-h-[760px]
-max-w-[760px]
-min-h-[340px]
-min-w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-red-900/20"
+          className="absolute left-1/2 top-[48%] h-[min(96vw,clamp(320px,78svh,760px))]
+w-[min(96vw,clamp(320px,78svh,760px))] -translate-x-1/2 -translate-y-1/2 rounded-full border border-red-900/20"
         />
 
         {/* Mascot + glow */}
@@ -349,16 +313,11 @@ min-w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-red-9
           initial="hidden"
           animate="visible"
           variants={mascotVariants}
-          className="relative flex items-center justify-center"
+          className="relative flex -translate-y-[2svh] items-center justify-center"
         >
           <div
             aria-hidden="true"
-            className="absolute left-1/2 top-1/2  -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#EB0028] opacity-20 blur-[90px] h-[45vw]
-w-[45vw]
-min-h-[180px]
-min-w-[180px]
-max-h-[440px]
-max-w-[440px]"
+            className="absolute left-1/2 top-1/2 h-[min(70vw,52svh,440px)] w-[min(70vw,52svh,440px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#EB0028] opacity-20 blur-[90px]"
           />
 
           <Image
@@ -367,25 +326,13 @@ max-w-[440px]"
             width={1200}
             height={900}
             priority
-            className="
-w-[80vw]
-sm:w-[60vw]
-md:w-[48vw]
-lg:w-[42vw]
-max-w-[780px]
-min-w-[220px]
-h-auto
-object-contain
-drop-shadow-[0_20px_45px_rgba(0,0,0,0.8)]
-"
+            className="h-[clamp(320px,74svh,760px)] w-auto max-w-none object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.8)]"
           />
         </motion.div>
       </div>
 
       {/* Bottom gradient */}
-      <div className="pointer-events-none absolute bottom-0 left-0 z-20 h-[26vh]
-sm:h-[30vh]
-md:h-[32vh] w-full bg-gradient-to-t from-black via-black/90 to-transparent" />
+      <div className="pointer-events-none absolute bottom-0 left-0 z-20 h-[clamp(9rem,26vh,20rem)] w-full bg-gradient-to-t from-black via-black/90 to-transparent" />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -396,10 +343,8 @@ md:h-[32vh] w-full bg-gradient-to-t from-black via-black/90 to-transparent" />
         }}
         className="
 absolute
-bottom-8
-sm:bottom-10
-md:bottom-12
- left-1/2 z-30 -translate-x-1/2 text-center"
+bottom-[clamp(1.5rem,4vh,3rem)]
+left-1/2 z-30 -translate-x-1/2 text-center"
       >
         <motion.h2
           animate={{
